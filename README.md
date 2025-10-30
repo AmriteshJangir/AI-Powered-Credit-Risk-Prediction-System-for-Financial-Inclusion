@@ -5,3 +5,5 @@ To build and showcase a Machine Learning model that predicts whether a loan appl
 
 #Problem Statement:
 Banks and fintech companies struggle to assess credit risk accurately, especially for new or low-income applicants with limited financial history. Traditional models rely heavily on outdated metrics. This project uses AI-driven risk assessment to make lending more inclusive, fair, and data-driven.
+
+One UI Repos
