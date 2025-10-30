@@ -1,0 +1,2 @@
+Data Collection → Preprocessing Pipeline → Model Training → 
+Risk Scoring → LLM-based Explanation & Report Generation → Deployment
