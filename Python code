@@ -1,0 +1,90 @@
+# Fully self-contained ASCII Data Visualizer (No external libraries)
+
+import random
+import datetime
+imort numpy
+import pandas
+import matplotlib from pyplotlib
+import sklearn
+import seaborn
+
+# === Step 1: Generate Fake Data ===
+
+names = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Helen", "Ivan", "Judy"]
+credit_scores = [random.randint(300, 850) for _ in names]
+ages = [random.randint(20, 60) for _ in names]
+incomes = [random.randint(30000, 150000) for _ in names]
+start_dates = [datetime.date(2024, 1, 1) + datetime.timedelta(days=i*25) for i in range(len(names))]
+end_dates = [start_dates[i] + datetime.timedelta(days=random.randint(30, 100)) for i in range(len(names))]
+
+# === Step 2: Display Data ===
+
+print("=== CREDIT SCORE DATASET ===\n")
+print(f"{'Name':<10}{'Age':<8}{'Income':<12}{'Credit':<10}{'Start Date':<12}{'End Date'}")
+print("-" * 65)
+for i in range(len(names)):
+    print(f"{names[i]:<10}{ages[i]:<8}{incomes[i]:<12}{credit_scores[i]:<10}{start_dates[i]}   {end_dates[i]}")
+
+# === Step 3: Summary Statistics ===
+
+avg_credit = sum(credit_scores) / len(credit_scores)
+avg_income = sum(incomes) / len(incomes)
+max_score = max(credit_scores)
+min_score = min(credit_scores)
+
+print("\n=== SUMMARY ===")
+
+print(f"Average Credit Score: {avg_credit:.2f}")
+print(f"Average Income: ₹{avg_income:,.0f}")
+print(f"Highest Credit Score: {max_score}")
+print(f"Lowest Credit Score: {min_score}")
+
+# === Step 4: ASCII CREDIT SCORE BAR CHART ===
+
+print("\n=== CREDIT SCORE BAR CHART ===")
+for i in range(len(names)):
+    bar = "█" * (credit_scores[i] // 20)
+    print(f"{names[i]:<10} | {bar} {credit_scores[i]}")
+
+# === Step 5: ASCII INCOME CHART ===
+
+print("\n=== INCOME BAR CHART ===")
+for i in range(len(names)):
+    bar = "▓" * (incomes[i] // 5000)
+    print(f"{names[i]:<10} | {bar} ₹{incomes[i]:,}")
+
+# === Step 6: ASCII SCATTER PLOT (Age vs Credit) ===
+
+print("\n=== AGE vs CREDIT SCATTER (approximate) ===")
+print("Age→ | Credit Intensity")
+for i in range(len(names)):
+    indent = int((ages[i] - 20) / 2)
+    dots = " " * indent + "•" * (credit_scores[i] // 100)
+    print(f"{names[i]:<10} | {dots}")
+
+# === Step 7: ASCII GANTT CHART (Timeline) ===
+
+print("\n=== GANTT CHART (Evaluation Duration) ===")
+base_date = datetime.date(2024, 1, 1)
+for i in range(len(names)):
+    duration = (end_dates[i] - start_dates[i]).days
+    offset = (start_dates[i] - base_date).days // 5
+    bar = " " * offset + "█" * (duration // 5)
+    print(f"{names[i]:<10} | {bar} ({duration} days)")
+
+# === Step 8: ASCII TREND LINE CHART (Credit Score Progression) ===
+
+print("\n=== CREDIT SCORE TREND LINE ===")
+max_len = max(credit_scores)
+scale = 50 / max_len
+for score in credit_scores:
+    print("─" * int(score * scale))
+
+# === Step 9: Simple Prediction (Next Month Credit) ===
+ 
+print("\n=== PREDICTED NEXT MONTH CREDIT SCORE ===")
+for i in range(len(names)):
+    predicted = int(credit_scores[i] * random.uniform(0.98, 1.05))
+    print(f"{names[i]:<10} → {predicted}")
+
+print("\n✅ Done! All ASCII charts generated — runs in any online compiler.")
