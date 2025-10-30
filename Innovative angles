@@ -1,0 +1,4 @@
+Innovative Angle (to stand out in the showcase):
+* Integrate Explainable AI to ensure transparency in decisions.
+* Add Fairness metrics (detect bias in gender/income predictions).
+* Optionally, build a chatbot interface using LangChain + OpenAI API to explain prediction outcomes in natural language.
