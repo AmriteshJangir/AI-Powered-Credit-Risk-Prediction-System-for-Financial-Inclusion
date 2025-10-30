@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Powered Credit Risk Prediction System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>AI-Powered Credit Risk Prediction System</h1>
+    <p class="subtitle">Empowering Financial Inclusion using Pipelining Automation and LLMs</p>
+  </header>
+
+  <section class="features">
+    <div class="card">
+      <h3>⚙️ Automated Pipelines</h3>
+      <p>Streamline data preprocessing, model training, and deployment with automated ML pipelines.</p>
+    </div>
+
+    <div class="card">
+      <h3>🤖 LLM-Powered Insights</h3>
+      <p>Generate explainable AI insights and credit reports using large language models.</p>
+    </div>
+
+    <div class="card">
+      <h3>💳 Financial Inclusion</h3>
+      <p>Assess creditworthiness for underserved groups using intelligent, data-driven evaluation.</p>
+    </div>
+  </section>
+
+  <section class="demo">
+    <h2>🎯 Demo: Credit Risk Prediction</h2>
+    <p>Click below to simulate a credit risk prediction score.</p>
+    <button onclick="predictRisk()">Predict Credit Risk</button>
+    <p id="scoreDisplay" class="score"></p>
+  </section>
+
+  <footer>
+    © 2025 AI Credit Risk System | Designed by Amritesh Jangir
+  </footer>
+
+  <script>
+    function predictRisk() {
+      const score = (Math.random() * 0.5 + 0.5).toFixed(2);
+      const display = document.getElementById('scoreDisplay');
+      display.innerHTML = `Predicted Credit Risk Score: ${score} <br><small>(0 = High Risk, 1 = Low Risk)</small>`;
+    }
+  </script>
+</body>
+</html>
