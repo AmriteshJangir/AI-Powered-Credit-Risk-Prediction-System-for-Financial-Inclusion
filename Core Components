@@ -1,0 +1,7 @@
+Component	Description
+Data Collection	Use open datasets like Credit Risk Dataset (Kaggle) or [UCI Credit Approval Data].
+Data Cleaning & Feature Engineering	Handle missing values, create new features (e.g., credit utilization ratio, income-to-loan ratio).
+Model Development	Compare ML models – Logistic Regression, Random Forest, XGBoost, and Neural Networks.
+Explainable AI (XAI)	Use SHAP or LIME to explain why the model makes each prediction.
+Deployment	Create an interactive web app (Streamlit or Flask) for loan officers to input data and view predictions + explanations.
+Evaluation Metrics	Use Accuracy, ROC-AUC, Precision-Recall, and F1-score.
