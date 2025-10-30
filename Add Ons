@@ -1,0 +1,4 @@
+⚙️ Optional Add-ons (for deeper ML/DL experience):
+* Train a Neural Network with TensorFlow/PyTorch for comparison
+* Add a Dashboard (Plotly Dash or Streamlit) showing model stats and bias detection
+* Integrate MLOps tools (MLflow, DVC, or Docker) for reproducibility
