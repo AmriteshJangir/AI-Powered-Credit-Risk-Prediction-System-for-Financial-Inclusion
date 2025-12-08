@@ -144,6 +144,7 @@ Age	Gender	Income	Education	Marital Status	Number of Children	Home Ownership	Cre
 31	Male	65000	Bachelor's Degree	Single	0	Rented	Average
 36	Female	85000	Master's Degree	Married	2	Owned	High
 41	Male	110000	Doctorate	Single	0	Owned	High
+42 Male 123333 dor single 1 owned high
 46	Female	95000	High School Diploma	Married	1	Owned	High
 51	Male	140000	Bachelor's Degree	Married	0	Owned	High
 27	Female	37500	High School Diploma	Single	0	Rented	Low
