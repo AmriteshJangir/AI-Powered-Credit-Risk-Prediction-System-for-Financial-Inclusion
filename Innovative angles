@@ -3,6 +3,7 @@ Innovative Angles (Showcase Differentiators)
 Integrate SHAP and LIME to explain individual loan approval or rejection decisions.
 Display feature-level contribution to each prediction.
 Improves trust, auditability, and regulatory compliance.
+
 2. Fairness & Bias Detection
 Implement fairness metrics such as:
 Demographic Parity
@@ -10,24 +11,29 @@ Equal Opportunity
 Disparate Impact Ratio
 Analyze bias across sensitive attributes (e.g., gender, income group, age).
 Highlight and flag biased predictions for model retraining.
+
 3. Human-Readable Decision Explanations
 Convert model outputs into plain-language explanations.
 Explain why a loan was approved or rejected in non-technical terms.
 Designed for loan officers and non-technical stakeholders.
+
 4. Conversational AI Interface (Optional Advanced Feature)
 Build a chatbot using LangChain + OpenAI API.
 Enable users to ask questions like:
 “Why was this loan rejected?”
 “Which factors affected the risk score the most?”
 Enhances user engagement and interpretability.
+
 5. Scenario-Based What-If Analysis
 Allow users to modify inputs (income, loan amount, tenure).
 Show real-time impact on risk score and approval probability.
 Helps applicants understand improvement paths.
+
 6. Responsible AI & Compliance Layer
 Log predictions, explanations, and fairness scores.
 Maintain audit trails for regulatory review.
 Align with Responsible AI and model governance best practices.
+
 7. Business-Impact Focused Insights
 Translate technical metrics into business KPIs:
 Default risk reduction
