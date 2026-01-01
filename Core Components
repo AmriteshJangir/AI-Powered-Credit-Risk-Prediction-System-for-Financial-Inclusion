@@ -1,7 +1,40 @@
-Component	Description
-Data Collection	Use open datasets like Credit Risk Dataset (Kaggle) or [UCI Credit Approval Data].
-Data Cleaning & Feature Engineering	Handle missing values, create new features (e.g., credit utilization ratio, income-to-loan ratio).
-Model Development	Compare ML models – Logistic Regression, Random Forest, XGBoost, and Neural Networks.
-Explainable AI (XAI)	Use SHAP or LIME to explain why the model makes each prediction.
-Deployment	Create an interactive web app (Streamlit or Flask) for loan officers to input data and view predictions + explanations.
-Evaluation Metrics	Use Accuracy, ROC-AUC, Precision-Recall, and F1-score.
+Data Collection
+Source publicly available credit risk datasets such as Kaggle Credit Risk Dataset and UCI Credit Approval Dataset.
+Include applicant demographic, financial, and credit history attributes.
+Data Cleaning & Feature Engineering
+Handle missing values using statistical imputation or model-based techniques.
+Remove duplicates and treat outliers to reduce noise.
+
+Engineer domain-specific features such as:
+Credit utilization ratio
+Income-to-loan ratio
+Debt-to-income ratio
+Payment history indicators
+Model Development
+
+Train and compare multiple machine learning models:
+Logistic Regression (baseline and interpretability)
+Random Forest (non-linear relationships)
+XGBoost (high performance and robustness)
+Neural Networks (complex pattern learning)
+Perform hyperparameter tuning using cross-validation.
+Explainable AI (XAI)
+Apply SHAP and LIME to interpret model predictions.
+Provide global feature importance and local, instance-level explanations.
+Enable transparency in credit approval and rejection decisions for regulatory compliance.
+
+Model Evaluation
+Evaluate models using multiple performance metrics:
+Accuracy
+ROC-AUC
+Precision
+Recall
+F1-Score
+Compare trade-offs between performance and interpretability.
+Deployment
+Develop an interactive web application using Streamlit or Flask.
+Allow loan officers to:
+Input applicant details
+View credit risk predictions
+Access explanation visualizations (feature contributions)
+Ensure usability for real-world decision support.
