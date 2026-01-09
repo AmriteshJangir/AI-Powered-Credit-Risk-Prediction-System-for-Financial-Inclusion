@@ -1,0 +1,65 @@
+# Owner credentials
+OWNER_USERNAME = "admin"
+OWNER_PASSWORD = "admin123"
+
+data_store = []
+
+def owner_login():
+    username = input("Enter Owner Username: ")
+    password = input("Enter Owner Password: ")
+
+    if username == OWNER_USERNAME and password == OWNER_PASSWORD:
+        print("\nAccess Granted ✅")
+        owner_menu()
+    else:
+        print("\nAccess Denied ❌")
+        exit()
+
+def owner_menu():
+    while True:
+        print("\n--- Owner Data Access Menu ---")
+        print("1. View Data")
+        print("2. Add Data")
+        print("3. Delete Data")
+        print("4. Logout")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            view_data()
+        elif choice == "2":
+            add_data()
+        elif choice == "3":
+            delete_data()
+        elif choice == "4":
+            print("Logged out successfully.")
+            break
+        else:
+            print("Invalid choice!")
+
+def view_data():
+    if not data_store:
+        print("No data available.")
+    else:
+        print("\nStored Data:")
+        for i, data in enumerate(data_store, start=1):
+            print(i, data)
+
+def add_data():
+    data = input("Enter data to add: ")
+    data_store.append(data)
+    print("Data added successfully.")
+
+def delete_data():
+    view_data()
+    if data_store:
+        index = int(input("Enter data number to delete: "))
+        if 1 <= index <= len(data_store):
+            removed = data_store.pop(index - 1)
+            print("Deleted:", removed)
+        else:
+            print("Invalid index!")
+
+# Program start
+owner_login()
+
