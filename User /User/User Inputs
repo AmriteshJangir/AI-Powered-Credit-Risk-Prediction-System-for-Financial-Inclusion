@@ -1,3 +1,13 @@
-Amritesh
-amritesh@example.com
-123
+import random
+
+n = int(input("Enter number of users: "))
+
+for i in range(n):
+    name = input(f"\nEnter name of user {i+1}: ").lower().replace(" ", "")
+    
+    email = name + "@gmail.com"
+    reg_no = "REG" + str(random.randint(1000, 9999))
+    
+    print("Name :", name)
+    print("Email:", email)
+    print("Reg No:", reg_no)
