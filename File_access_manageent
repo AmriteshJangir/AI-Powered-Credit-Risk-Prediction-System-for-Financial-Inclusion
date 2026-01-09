@@ -1,3 +1,33 @@
-user--
-version--
-update--
+#!/bin/bash
+
+FILE="records.txt"
+
+echo "1. Add Record"
+echo "2. View Records"
+echo "3. Exit"
+read -p "Enter choice: " choice
+
+case $choice in
+1)
+    read -p "Enter User Name: " user
+    read -p "Enter Version: " version
+    read -p "Enter Update Info: " update
+
+    echo "User: $user | Version: $version | Update: $update" >> $FILE
+    echo "Record saved successfully."
+    ;;
+2)
+    if [ -f $FILE ]; then
+        echo "---- Stored Records ----"
+        cat $FILE
+    else
+        echo "No records found."
+    fi
+    ;;
+3)
+    echo "Exiting..."
+    ;;
+*)
+    echo "Invalid choice!"
+    ;;
+esac
