@@ -1,1 +1,92 @@
+#User1 - user1@gmail.com - REG2341
+#User2 - user2@gmail.com - REG7823
+
+# File-based Owner Data Access System
+
+OWNER_USERNAME = "admin"
+OWNER_PASSWORD = "admin123"
+FILE_NAME = "data.txt"
+
+def owner_login():
+    username = input("Enter Owner Username: ")
+    password = input("Enter Owner Password: ")
+
+    if username == OWNER_USERNAME and password == OWNER_PASSWORD:
+        print("\nAccess Granted ✅")
+        owner_menu()
+    else:
+        print("\nAccess Denied ❌")
+        exit()
+
+def owner_menu():
+    while True:
+        print("\n--- Owner Data Access Menu ---")
+        print("1. View Data")
+        print("2. Add Data")
+        print("3. Delete Data")
+        print("4. Logout")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            view_data()
+        elif choice == "2":
+            add_data()
+        elif choice == "3":
+            delete_data()
+        elif choice == "4":
+            print("Logged out successfully.")
+            break
+        else:
+            print("Invalid choice!")
+
+def view_data():
+    try:
+        with open(FILE_NAME, "r") as file:
+            data = file.readlines()
+            if not data:
+                print("No data available.")
+            else:
+                print("\nStored Data:")
+                for i, line in enumerate(data, start=1):
+                    print(f"{i}. {line.strip()}")
+    except FileNotFoundError:
+        print("No data file found.")
+
+def add_data():
+    data = input("Enter data to add: ")
+    with open(FILE_NAME, "a") as file:
+        file.write(data + "\n")
+    print("Data added successfully.")
+
+def delete_data():
+    try:
+        with open(FILE_NAME, "r") as file:
+            data = file.readlines()
+
+        if not data:
+            print("No data to delete.")
+            return
+
+        print("\nStored Data:")
+        for i, line in enumerate(data, start=1):
+            print(f"{i}. {line.strip()}")
+
+        index = int(input("Enter data number to delete: "))
+
+        if 1 <= index <= len(data):
+            removed = data.pop(index - 1)
+            with open(FILE_NAME, "w") as file:
+                file.writelines(data)
+            print("Deleted:", removed.strip())
+        else:
+            print("Invalid index!")
+
+    except FileNotFoundError:
+        print("No data file found.")
+    except ValueError:
+        print("Please enter a valid number.")
+
+# Program start
+owner_login()
 
