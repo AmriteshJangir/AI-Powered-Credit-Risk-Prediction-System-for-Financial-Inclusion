@@ -1,5 +1,6 @@
 FILE_NAME = "students.txt"
 
+# managing from file
 # Load data from file
 def load_students():
     students = {}
