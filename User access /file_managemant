@@ -1,1 +1,113 @@
+FILE_NAME = "students.txt"
+
+# Load data from file
+def load_students():
+    students = {}
+    try:
+        with open(FILE_NAME, "r") as file:
+            for line in file:
+                roll, name, marks = line.strip().split(",")
+                students[roll] = {"name": name, "marks": int(marks)}
+    except FileNotFoundError:
+        pass
+    return students
+
+
+# Save data to file
+def save_students(students):
+    with open(FILE_NAME, "w") as file:
+        for roll, data in students.items():
+            file.write(f"{roll},{data['name']},{data['marks']}\n")
+
+
+def admin_menu(students):
+    while True:
+        print("\n--- ADMIN MENU ---")
+        print("1. Add Student")
+        print("2. View All Students")
+        print("3. Update Marks")
+        print("4. Delete Student")
+        print("5. Logout")
+
+        choice = input("Enter choice: ")
+
+        if choice == "1":
+            roll = input("Enter Roll Number: ")
+            name = input("Enter Name: ")
+            marks = int(input("Enter Marks: "))
+            students[roll] = {"name": name, "marks": marks}
+            save_students(students)
+            print("Student added successfully!")
+
+        elif choice == "2":
+            if not students:
+                print("No records found.")
+            else:
+                for roll, data in students.items():
+                    print(f"Roll: {roll}, Name: {data['name']}, Marks: {data['marks']}")
+
+        elif choice == "3":
+            roll = input("Enter Roll Number: ")
+            if roll in students:
+                students[roll]["marks"] = int(input("Enter new marks: "))
+                save_students(students)
+                print("Marks updated successfully!")
+            else:
+                print("Student not found.")
+
+        elif choice == "4":
+            roll = input("Enter Roll Number: ")
+            if roll in students:
+                del students[roll]
+                save_students(students)
+                print("Student deleted successfully!")
+            else:
+                print("Student not found.")
+
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice!")
+
+
+def user_menu(students):
+    roll = input("Enter your Roll Number: ")
+    if roll in students:
+        print("\n--- STUDENT DETAILS ---")
+        print("Name :", students[roll]["name"])
+        print("Marks:", students[roll]["marks"])
+    else:
+        print("Student record not found.")
+
+
+def main():
+    students = load_students()
+
+    while True:
+        print("\n=== ACADEMIC MANAGEMENT SYSTEM ===")
+        print("1. Admin Login")
+        print("2. Student Login")
+        print("3. Exit")
+
+        choice = input("Enter choice: ")
+
+        if choice == "1":
+            password = input("Enter Admin Password: ")
+            if password == "admin123":
+                admin_menu(students)
+            else:
+                print("Wrong password!")
+
+        elif choice == "2":
+            user_menu(students)
+
+        elif choice == "3":
+            print("Exiting system...")
+            break
+
+        else:
+            print("Invalid choice!")
+
+
+main()
 
