@@ -1,1 +1,92 @@
 
+# Academic Management System
+# Role: Admin and User
+
+students = {}
+
+def admin_menu():
+    while True:
+        print("\n--- ADMIN MENU ---")
+        print("1. Add Student")
+        print("2. View All Students")
+        print("3. Update Student Marks")
+        print("4. Delete Student")
+        print("5. Logout")
+
+        choice = input("Enter choice: ")
+
+        if choice == "1":
+            roll = input("Enter Roll Number: ")
+            name = input("Enter Name: ")
+            marks = int(input("Enter Marks: "))
+            students[roll] = {"name": name, "marks": marks}
+            print("Student added successfully!")
+
+        elif choice == "2":
+            if not students:
+                print("No student records available.")
+            else:
+                for roll, data in students.items():
+                    print(f"Roll: {roll}, Name: {data['name']}, Marks: {data['marks']}")
+
+        elif choice == "3":
+            roll = input("Enter Roll Number: ")
+            if roll in students:
+                new_marks = int(input("Enter New Marks: "))
+                students[roll]["marks"] = new_marks
+                print("Marks updated successfully!")
+            else:
+                print("Student not found.")
+
+        elif choice == "4":
+            roll = input("Enter Roll Number: ")
+            if roll in students:
+                del students[roll]
+                print("Student deleted successfully!")
+            else:
+                print("Student not found.")
+
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice!")
+
+
+def user_menu():
+    roll = input("Enter your Roll Number: ")
+    if roll in students:
+        print("\n--- STUDENT DETAILS ---")
+        print("Name :", students[roll]["name"])
+        print("Marks:", students[roll]["marks"])
+    else:
+        print("Student record not found.")
+
+
+def main():
+    while True:
+        print("\n=== ACADEMIC MANAGEMENT SYSTEM ===")
+        print("1. Admin Login")
+        print("2. Student Login")
+        print("3. Exit")
+
+        choice = input("Enter choice: ")
+
+        if choice == "1":
+            password = input("Enter Admin Password: ")
+            if password == "admin123":
+                admin_menu()
+            else:
+                print("Wrong password!")
+
+        elif choice == "2":
+            user_menu()
+
+        elif choice == "3":
+            print("Thank you! Exiting...")
+            break
+
+        else:
+            print("Invalid choice!")
+
+
+main()
